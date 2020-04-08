@@ -1,0 +1,19 @@
+{
+    "name": "ivanlemeshev/brain-games-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivan Lemeshev",
+            "email": "vanlmshv@gmail.com"
+        }
+    ],
+    "scripts": {
+        "phpcs": "phpcs",
+        "phpcbf": "phpcbf"
+    },
+    "require": {},
+    "require-dev": {
+        "vimeo/psalm": "^3.9",
+        "squizlabs/php_codesniffer": "^3.5"
+    }
+}

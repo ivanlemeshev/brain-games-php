@@ -1,5 +1,9 @@
 {
     "name": "ivanlemeshev/brain-games-php",
+    "description": "Brain Games",
+    "bin": [
+        "bin/brain-games"
+    ],
     "license": "MIT",
     "authors": [
         {

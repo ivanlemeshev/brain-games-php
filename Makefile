@@ -12,6 +12,10 @@ install:
 run:
 	@php ./bin/brain-games
 
+test:
+	$(info Run tests)
+	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/phpunit
+
 lint:
 	$(info Run linter)
 	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/phpcs --standard=PSR12 bin src

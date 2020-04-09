@@ -9,17 +9,20 @@ install:
 	$(info Install dependencies)
 	docker run -v $(pwd):/app -w /app php-runner composer install
 
+run:
+	@php ./bin/brain-games
+
 lint:
 	$(info Run linter)
-	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/phpcs --standard=PSR12 bin
+	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/phpcs --standard=PSR12 bin src
 
 lint-fix:
 	$(info Run linter with fixing)
-	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/phpcbf --standard=PSR12 bin
+	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/phpcbf --standard=PSR12 bin src
 
 psalm:
 	$(info Run static analysis)
-	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/psalm --show-info=true bin
+	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/psalm --show-info=true bin src
 
 require:
 	$(info Install dependecy)

@@ -11,10 +11,6 @@
             "email": "vanlmshv@gmail.com"
         }
     ],
-    "scripts": {
-        "phpcs": "phpcs",
-        "phpcbf": "phpcbf"
-    },
     "autoload": {
         "files": [
             "src/Cli.php"

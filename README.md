@@ -10,3 +10,13 @@ $ git clone https://github.com/ivanlemeshev/brain-games-php.git
 
 $ make setup
 ```
+
+## Add dependencies
+
+```bash
+make require p=some/package
+```
+
+```bash
+make require-dev p=some/package
+```

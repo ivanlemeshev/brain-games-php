@@ -15,7 +15,6 @@ run:
 test:
 	$(info Run tests)
 	docker run -v $(pwd):/brain-games -w /brain-games php-runner vendor/bin/phpunit
-	sed -i -e 's/\/brain-games\///g' build/logs/clover.xml
 
 lint:
 	$(info Run linter)

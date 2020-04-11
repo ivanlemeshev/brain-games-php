@@ -16,25 +16,31 @@ jobs:
         # https://github.com/actions/checkout
       - uses: actions/checkout@v2
         
-      # Step's name
-      - name: Setup
+      - name: Setup PHP
+        # Action gives to setup the PHP environment to test application
+        # https://github.com/shivammathur/setup-php
+        uses: shivammathur/setup-php@v1
+        with:
+          # Specify the PHP version
+          php-version: '7.4'
+
+      - name: Install
         # Setup project
-        run: make setup
+        run: composer install
 
       - name: Run linter
         # Run Linter
-        run: make lint
+        run: vendor/bin/phpcs --standard=PSR12 bin src
 
       - name: Run psalm
         # Run Psalm
-        run: make psalm
+        run: vendor/bin/psalm --show-info=true bin src
 
       - name: Run test & publish code coverage
         uses: paambaati/codeclimate-action@v2.4.0
         # Add Code Climate secret key
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
-          coverageCommand: make test
-          coverageLocations: "${{github.workspace}}/build/logs/clover.xml:clover"
+          coverageCommand: vendor/bin/phpunit
           debug: true
